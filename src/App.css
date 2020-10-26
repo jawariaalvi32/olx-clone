@@ -1,0 +1,45 @@
+.Search {
+  background-color: #002f34 !important;
+  border-radius: 0px 4px 4px 0px !important;
+} 
+#search-text {
+  border-radius: 4px 0px 0px 4px !important;
+  width: 500px;
+}
+input {
+  border: 2px solid #002f34 !important;
+}
+input:focus {
+  border: 2px solid #002f34 !important;
+}
+.btn-link {
+  color: #002f34 !important;
+}
+.p-20 {
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+}
+.sell {
+  border-radius: 20px !important;
+  border: 2px solid brown !important;
+}
+.footer {
+  background-color: #002f34 !important;
+  margin-bottom: 0px !important;
+  color: white;
+}
+.nav {
+  color: #002f34 !important;
+}
+p {
+  font-size: 12px;
+  line-height: 18px;
+}
+h6 {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #002f34 !important;
+}
+.m-19 {
+  margin: 5px 0.01px 5px 0.01px !important;
+}
