@@ -6,7 +6,7 @@ import heroimg from '../images/hero_bg_pk.jpg';
 class Hero extends React.Component {
     render() {
         return (
-           <img src={heroimg}  width="100%"/>
+           <img src={heroimg}  width="100%" alt="hero image"/>
         )
     }
 }

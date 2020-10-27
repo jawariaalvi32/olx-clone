@@ -40,6 +40,21 @@ h6 {
   font-weight: 700 !important;
   color: #002f34 !important;
 }
-.m-19 {
+.m-05 {
   margin: 5px 0.01px 5px 0.01px !important;
+}
+a {
+  color: black !important;
+  text-decoration: none !important;
+}
+.modal-content {
+  position: absolute;
+}
+.nav {
+  margin-top: 68px !important;
+}
+.btn-outline-dark:hover {
+  background-color: white !important;
+  border: 3px solid black !important;
+  color: black !important;
 }

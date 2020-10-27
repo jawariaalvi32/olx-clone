@@ -1,6 +1,8 @@
 import React from 'react';
 import '../App.css';
+import { Link } from "react-router-dom";
 import logo from '../images/logo.png'
+import { AiOutlineSearch } from 'react-icons/ai';
 
 
 class Header extends React.Component {
@@ -8,7 +10,7 @@ class Header extends React.Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top p-20">
-                    <a className="navbar-brand"><img src={logo}  width="40px"/> </a>
+                    <div className="navbar-brand"><img src={logo}  width="40px" alt="Logo"/></div>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
@@ -20,7 +22,7 @@ class Header extends React.Component {
                                 </div>
                                 <div className="col d-flex">
                                     <input type="text" className="form-control" id="search-text" placeholder="Find Cars, Mobile Phones and more.." />
-                                    <button className="btn mb-2 Search">Confirm</button>
+                                    <button className="btn mb-2 Search text-white"><AiOutlineSearch size="18"/></button>
                                 </div>
                             </div>
                         </form>
@@ -28,16 +30,20 @@ class Header extends React.Component {
                             <button type="button" className="btn btn-link">Login</button>
                         </div>
                         <div className="col d-flex">
-                            <button className="btn sell">+ Sell</button>
+                           <a href="/modal"> <button className="btn sell">+ Sell</button></a>
                         </div>
                     </div>
                 </nav>
+                
                 <ul className="nav justify-content-center">
                     <li className="nav-item">
-                    <a className="nav-link active" href="#">Active</a>
+                        <h6 className="mb-0 mt-1"><a className="nav-link active" href="#">ALL CATEGORIES</a></h6>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#">Mpbile Phones</a>
+                    <a className="nav-link active" href="#">Tablets</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" href="#">Mobile Phones</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="#">Cars</a>
