@@ -22,11 +22,24 @@ input:focus {
 .sell {
   border-radius: 20px !important;
   border: 2px solid brown !important;
+  background-color: #f8f9fa !important;
+  color: black !important;
+}
+.btn-login {
+  margin-left: 25%;
+  text-decoration: underline !important;
+  color: black !important;
+  background-color: #f8f9fa !important;
+  border: none !important;
+
 }
 .footer {
   background-color: #002f34 !important;
   margin-bottom: 0px !important;
   color: white;
+}
+.footer-links {
+  background-color: #DCDCDC !important;
 }
 .nav {
   color: #002f34 !important;
@@ -57,4 +70,28 @@ a {
   background-color: white !important;
   border: 3px solid black !important;
   color: black !important;
+}
+.rec.rec-dot {
+  background-color: #DCDCDC !important;
+  box-shadow: none !important;
+
+}
+.rec.rec-dot_active {
+  background:rgb(64, 145, 216) !important;
+  box-shadow: none !important;
+
+}
+.rec.rec-arrow {
+  background-color: white;
+  color: black !important;
+  outline: none !important;
+}
+.rec.rec-arrow:hover, .rec.rec-arrow:focus {
+  background-color: white !important;
+  color: black !important;
+  outline: none !important;
+
+}
+.ml-26 {
+  margin-left: 26% !important;
 }

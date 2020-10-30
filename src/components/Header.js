@@ -3,20 +3,22 @@ import '../App.css';
 import { Link } from "react-router-dom";
 import logo from '../images/logo.png'
 import { AiOutlineSearch } from 'react-icons/ai';
+import  Modal  from './modal';
 
 
 class Header extends React.Component {
+    
     render() {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top p-20">
-                    <div className="navbar-brand"><img src={logo}  width="40px" alt="Logo"/></div>
+                    <Link to="/"><div className="navbar-brand mb-3"><img src={logo}  width="40px" alt="Logo"/></div></Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <form>
-                            <div className="row pt-3">
+                            <div className="row">
                                 <div className="col">
                                     <input type="text" className="form-control" placeholder="Pakistan" />
                                 </div>
@@ -27,10 +29,10 @@ class Header extends React.Component {
                             </div>
                         </form>
                         <div className="col">
-                            <button type="button" className="btn btn-link">Login</button>
+                            < Modal class="btn-login" text="Login"/>
                         </div>
                         <div className="col d-flex">
-                           <a href="/modal"> <button className="btn sell">+ Sell</button></a>
+                            < Modal class="btn sell" text="+ Sell"/>
                         </div>
                     </div>
                 </nav>
@@ -58,6 +60,7 @@ class Header extends React.Component {
                     <a className="nav-link" href="#">TV-Video-Audio</a>
                     </li>
                 </ul>
+                
             </div>
 
             

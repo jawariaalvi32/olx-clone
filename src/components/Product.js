@@ -1,39 +1,30 @@
 import React from 'react';
-// import Header from './Header.js';
 import '../App.css';
 import product from '../images/phone-app.png';
+import Carousel from 'react-elastic-carousel';
 
 
 class Product extends React.Component {
+    state = {
+        items: [
+          {id: 1, src: product},
+          {id: 2, src: product},
+          {id: 3, src: product},
+          {id: 4, src: product},
+          {id: 5, src: product}
+        ]
+      }
+
     render() {
+        const { items }  = this.state;
         return (
             <div>
-                {/* < Header /> */}
-
-                <div className="container">
+                <div className="container mt-5">
                     <div className="row">
                         <div className="col-md-8 col-xs-12 mt-3">
-                            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                                <div className="carousel-inner">
-                                <div className="carousel-item active">
-                                    <img src={product} className="d-block w-100" alt="..." />
-                                </div>
-                                <div className="carousel-item">
-                                    <img src={product} className="d-block w-100" alt="..." />
-                                </div>
-                                <div className="carousel-item">
-                                    <img src={product} className="d-block w-100" alt="..." />
-                                </div>
-                                </div>
-                                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <span className="carousel-control-prev-icon" aria-hidden="true" />
-                                <span className="sr-only">Previous</span>
-                                </a>
-                                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span className="carousel-control-next-icon" aria-hidden="true" />
-                                <span className="sr-only">Next</span>
-                                </a>
-                            </div>
+                            <Carousel>
+                                {items.map(item => <div key={item.id}><img src={item.src} alt="product image"/></div>)}
+                            </Carousel>
 
                             <div className="card mt-3" style={{width: '18rem'}}>
                                 <div className="card-body">

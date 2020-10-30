@@ -10,12 +10,12 @@ import Home from '../layouts/Home.js';
 
 
 class AppRouter extends React.Component {
+
     render() {
         return (
             <Router>
                 <Route exact path="/" component={ Home }/>
                 <Route  path="/product" component={ Product }/>
-                <Route  path="/modal" component={ Modal }/>
             </Router>
         )
     }

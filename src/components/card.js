@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import AppRouter from '../config/router.js';
 import { Link } from "react-router-dom";
 import product from '../images/phone-app.png';
 
@@ -8,8 +7,8 @@ import product from '../images/phone-app.png';
 class Card extends React.Component {
     render() {
         return (
-            <div className="col-md-4 col-lg-3 col-xs-12 col-sm-6 m-05">
-                <a href="/product">
+            <div className="col-md-4 col-lg-3 col-xs-12 col-sm-6 m-05 justify-content-center d-flex">
+                <Link to="/product">
                     <div className="card" style={{width: '17rem'}}>
                         <img src={product} className="card-img-top" alt="Product Image" />
                         <div className="card-body">
@@ -21,7 +20,7 @@ class Card extends React.Component {
                         </div>                   
                         </div>
                     </div>
-                </a>
+                </Link>
             </div>
         )
     }
