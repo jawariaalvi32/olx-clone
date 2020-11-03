@@ -1,12 +1,12 @@
 import React from 'react';
 import '../App.css';
-import { RiFacebookLine } from 'react-icons/ri';
 import { RiGoogleLine } from 'react-icons/ri';
 import guitar from '../images/loginEntryPointPost.png';
 import fav from '../images/loginEntryPointFavorite.png';
 import chat from '../images/loginEntryPointChat.png';
 import Carousel from 'react-elastic-carousel';
 import { Button, Modal } from 'react-bootstrap';
+import FbLogin from '../auth/Facebook';
 
 
 class Sign extends React.Component {
@@ -44,10 +44,7 @@ class Sign extends React.Component {
                                     <p className="text-muted text-center">{item.p}</p>
                                 </div>)}
                             </Carousel>
-                            <button type="button" className="btn btn-outline-dark form-control mb-3 mt-5">
-                                <RiFacebookLine className="border border-dark rounded-circle  p-1 mr-3 mb-1" size="20"/>
-                                Continue with facebook
-                            </button>
+                            <FbLogin/>
                             <button type="button" className="btn btn-outline-dark form-control mb-3">Continue with phone</button>
                             <button type="button" className="btn btn-outline-dark form-control mb-3">Continue with email</button>
                             <button type="button" className="btn btn-outline-dark form-control mb-3">

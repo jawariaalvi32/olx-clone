@@ -4,9 +4,27 @@ import { Link } from "react-router-dom";
 import logo from '../images/logo.png'
 import { AiOutlineSearch } from 'react-icons/ai';
 import  Modal  from './modal';
-
+import LoginButton from './LoginButton';
+import firebase from '../config/firebase'
 
 class Header extends React.Component {
+    state = {
+        isLogin: false
+    }
+
+    componentDidMount = () => {
+        var user = firebase.auth().currentUser
+        console.log(user)
+        if (user) {
+            // this.state.isLogin= true;
+          this.setState({ isLogin: true })
+          console.log(this.state.isLogin);
+        } else {
+          this.setState({ isLogin: false })
+          console.log(this.state.isLogin);
+
+        }
+    }
     
     render() {
         return (
@@ -29,10 +47,17 @@ class Header extends React.Component {
                             </div>
                         </form>
                         <div className="col">
-                            < Modal class="btn-login" text="Login"/>
+                            {
+                                this.state.isLogin ? (
+                                    < LoginButton />
+                                ) : (
+                                    < Modal class="btn-login" text="Login"/>
+                                )
+                            }             
                         </div>
                         <div className="col d-flex">
                             < Modal class="btn sell" text="+ Sell"/>
+                            {/* <Fb/> */}
                         </div>
                     </div>
                 </nav>
