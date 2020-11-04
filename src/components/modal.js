@@ -4,12 +4,15 @@ import { RiGoogleLine } from 'react-icons/ri';
 import guitar from '../images/loginEntryPointPost.png';
 import fav from '../images/loginEntryPointFavorite.png';
 import chat from '../images/loginEntryPointChat.png';
+import { RiFacebookLine } from 'react-icons/ri';
 import Carousel from 'react-elastic-carousel';
 import { Button, Modal } from 'react-bootstrap';
-import FbLogin from '../auth/Facebook';
-
+import { connect } from 'react-redux';
+import { facebookLogin, setData } from '../store/action';
 
 class Sign extends React.Component {
+
+
     constructor ( ) {
         super();
         this.state = {
@@ -44,7 +47,10 @@ class Sign extends React.Component {
                                     <p className="text-muted text-center">{item.p}</p>
                                 </div>)}
                             </Carousel>
-                            <FbLogin/>
+                            <button type="button" className="btn btn-outline-dark form-control mb-3 mt-5" onClick={ () => this.props.facebookLogin() }>
+                                <RiFacebookLine className="border border-dark rounded-circle  p-1 mr-3 mb-1" size="20"/>
+                                Continue with facebook
+                            </button>
                             <button type="button" className="btn btn-outline-dark form-control mb-3">Continue with phone</button>
                             <button type="button" className="btn btn-outline-dark form-control mb-3">Continue with email</button>
                             <button type="button" className="btn btn-outline-dark form-control mb-3">
@@ -60,4 +66,8 @@ class Sign extends React.Component {
     }
 }
 
-export default Sign;
+const mapDispatchToProps = (dispatch) => ({
+    facebookLogin: () => dispatch(facebookLogin())
+})
+
+export default connect(null, mapDispatchToProps)(Sign);

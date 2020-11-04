@@ -5,28 +5,15 @@ import logo from '../images/logo.png'
 import { AiOutlineSearch } from 'react-icons/ai';
 import  Modal  from './modal';
 import LoginButton from './LoginButton';
+import { connect } from 'react-redux';
 import firebase from '../config/firebase'
 
+
 class Header extends React.Component {
-    state = {
-        isLogin: false
-    }
-
-    componentDidMount = () => {
-        var user = firebase.auth().currentUser
-        console.log(user)
-        if (user) {
-            // this.state.isLogin= true;
-          this.setState({ isLogin: true })
-          console.log(this.state.isLogin);
-        } else {
-          this.setState({ isLogin: false })
-          console.log(this.state.isLogin);
-
-        }
-    }
     
     render() {
+        // console.log("dd",this.props.users[0].name);
+
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top p-20">
@@ -48,16 +35,16 @@ class Header extends React.Component {
                         </form>
                         <div className="col">
                             {
-                                this.state.isLogin ? (
-                                    < LoginButton />
-                                ) : (
+                                // this.props.users[0].name == '' ? (
+                                firebase.auth().currentUser == null ? (
                                     < Modal class="btn-login" text="Login"/>
+                                ) : (
+                                    < LoginButton />
                                 )
                             }             
                         </div>
                         <div className="col d-flex">
                             < Modal class="btn sell" text="+ Sell"/>
-                            {/* <Fb/> */}
                         </div>
                     </div>
                 </nav>
@@ -93,4 +80,8 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+    users: state.users
+})
+
+export default connect(mapStateToProps,null)(Header);
