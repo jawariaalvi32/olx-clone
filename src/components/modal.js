@@ -8,7 +8,7 @@ import { RiFacebookLine } from 'react-icons/ri';
 import Carousel from 'react-elastic-carousel';
 import { Button, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { facebookLogin, setData } from '../store/action';
+import { facebookLogin } from '../store/action';
 
 class Sign extends React.Component {
 

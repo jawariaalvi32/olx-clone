@@ -15,16 +15,7 @@ class Home extends React.Component {
             < Header />
             < Hero />
             < Banner />
-            <div className="container">
-              <h4 className="mt-3 mb-3">Fresh Recommendations</h4>
-              <div className="row">
-                  < Card />
-                  < Card />
-                  < Card />
-                  < Card />
-                  < Card />
-              </div>
-            </div>
+            < Card />
             < PhoneApp />
             < Footer /> 
         </div>
