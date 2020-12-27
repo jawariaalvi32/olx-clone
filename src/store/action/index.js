@@ -7,9 +7,7 @@ const facebookLogin = () => {
         let provider = new firebase.auth.FacebookAuthProvider();
 
         firebase.auth().signInWithPopup(provider).then(function(result) {
-            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
             let token = result.credential.accessToken;
-            // The signed-in user info.
             let user = result.user;
            let createUser = {
                name: user.displayName,
@@ -67,7 +65,6 @@ const setProducts = () => {
             //   var childKey = childSnapshot.key;
             pro.push(childSnapshot.val());
             });
-            console.log(pro)
             dispatch({
                 type:"SETPRODUCTS",
                 payload: pro
