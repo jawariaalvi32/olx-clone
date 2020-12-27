@@ -12,7 +12,7 @@ class LoginButton extends React.Component {
           < BsChat size="25" className="ml-2"/>
           < MdNotificationsNone size="25" className="ml-2"/>
           <img src={ avatar } alt="Profie" width="40px" className="ml-2"/>
-          < RiArrowDropDownLine size="32"/>
+          < RiArrowDropDownLine size="30"/>
       </div>
     );
   }

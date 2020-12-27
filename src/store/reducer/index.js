@@ -1,19 +1,36 @@
 
 const INITIAL_STATE = {
     
-    pro:[ ]
+    productlist:[],
+    product:[],
+    categories:[]
 }
 
 export default (state = INITIAL_STATE, action) => {
     console.log("A => ",action.payload)
     switch(action.type) {
         case "SETPRODUCTS" :
-            state.pro.length = 0;
+            state.productlist.length = 0;
+
+            return ({
+                 ...state,
+                productlist:   action.payload
+            })
+        case "SHOWPRODUCT" :
+            state.product.length = 0;
 
             return ({
                 ...state,
-                pro:  [...state.pro, action.payload]
+                product:   [...state.product, action.payload]
             })
+        case "GETCATEGORIES" :
+            state.categories.length = 0;
+
+            return ({
+                ...state,
+                categories: action.payload
+            })
+        
         default:
             return state;
     }

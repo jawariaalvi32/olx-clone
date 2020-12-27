@@ -30,10 +30,7 @@ const facebookLogin = () => {
 const imgUpload = ( file ) => {
     return dispatch => {
         let ref = firebase.storage().ref(`images/${file.name}`).put(file);
-        // firebase.storage().ref("images").child(image.name).getDownloadURL()
-        // .then(url => {
-        //     imgUrl = url;
-        // });  
+       
         ref.on('state_changed',function(snapshot) {
 
         },function(error){
@@ -51,6 +48,10 @@ const imgUpload = ( file ) => {
                     key: key
                 }
                 dbRef.child(key).set(product);
+                dispatch({
+                    type:"SAVEIMAGE",
+                    payload: downloadURL
+                })
             });
         });
         
@@ -58,14 +59,42 @@ const imgUpload = ( file ) => {
 }
 
 const setProducts = () => {
+    let pro =[];
     return dispatch => {
-        let pro =[];
-        firebase.database().ref('/').child('products').on('child_added', (data) => {
+        let ref = firebase.database().ref('/products');
+        ref.once('value', (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+            //   var childKey = childSnapshot.key;
+            pro.push(childSnapshot.val());
+            });
+            console.log(pro)
             dispatch({
                 type:"SETPRODUCTS",
-                payload: data.val()
+                payload: pro
             })
+          });
 
+    }
+}
+
+const showProduct = (product) => {
+    return dispatch => {
+            dispatch({
+                type:"SHOWPRODUCT",
+                payload: product
+        })
+    }
+}
+
+const getCategories = () => {
+    return dispatch => {
+        let categories = [];
+        firebase.database().ref('/').child('categories').on('child_added', (data) => {
+            categories.push(data.val())
+        })
+        dispatch({
+            type:"GETCATEGORIES",
+            payload: categories
         })
     }
 }
@@ -73,5 +102,7 @@ const setProducts = () => {
 export {
     facebookLogin,
     imgUpload,
-    setProducts
+    setProducts,
+    showProduct,
+    getCategories
 }
