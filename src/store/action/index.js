@@ -7,19 +7,35 @@ const facebookLogin = () => {
         let provider = new firebase.auth.FacebookAuthProvider();
 
         firebase.auth().signInWithPopup(provider).then(function(result) {
+            alert("SignedIn");
+
             let token = result.credential.accessToken;
             let user = result.user;
-           let createUser = {
-               name: user.displayName,
-               email: user.email,
-               profile: user.photoURL,
-               uid:user.uid
-           }
-            console.log("Login", createUser);
-                // this.props.history.push('/product')
-
+            let createUser = {
+                name: user.displayName,
+                email: user.email,
+                profile: user.photoURL,
+                uid:user.uid
+            }
+            dispatch({
+                type:"CURRENTUSER",
+                payload: createUser
+            })
           }).catch(function(error) {
             console.log("error=>",error);
+          });
+    }
+}
+
+const logout = () => {
+    return dispatch => {
+        firebase.auth().signOut().then(function() {
+            alert("Signout");
+            dispatch({
+                type:"REMOVEUSER"
+            })
+          }).catch(function(error) {
+            // An error happened.
           });
     }
 }
@@ -101,5 +117,6 @@ export {
     imgUpload,
     setProducts,
     showProduct,
-    getCategories
+    getCategories,
+    logout
 }

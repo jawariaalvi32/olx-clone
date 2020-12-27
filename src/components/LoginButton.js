@@ -5,8 +5,16 @@ import { MdNotificationsNone } from 'react-icons/md'
 import avatar from '../images/avatar_3.png'
 import {Dropdown} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {logout} from '../store/action'
+import { connect } from 'react-redux';
 class LoginButton extends React.Component { 
+
   render() {
+    
+  const handleLogout = (e) => {
+    e.preventDefault()
+    this.props.logout()
+  }
     return (
       <div className="d-flex">
           < BsChat size="25" className="ml-2 mt-2"/>
@@ -17,7 +25,7 @@ class LoginButton extends React.Component {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item><Link to="/sell">Sell Product</Link></Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+              <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
       </div>
@@ -25,4 +33,10 @@ class LoginButton extends React.Component {
   }
 }
 
-export default LoginButton;
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout()),
+
+})
+
+export default connect(null,mapDispatchToProps)(LoginButton);

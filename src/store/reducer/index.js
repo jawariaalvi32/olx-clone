@@ -3,7 +3,8 @@ const INITIAL_STATE = {
     
     productlist:[],
     product:[],
-    categories:[]
+    categories:[],
+    user:[]
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -30,7 +31,18 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 categories: action.payload
             })
-        
+        case "CURRENTUSER" :
+
+            return ({
+                ...state,
+                user: action.payload
+            })
+        case "REMOVEUSER" :
+
+            return ({
+                ...state,
+                user: []
+            })
         default:
             return state;
     }
